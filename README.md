@@ -4,6 +4,14 @@ An agent skill for running Karpathy-style autoresearch loops over an Obsidian LL
 
 Instead of optimizing a model training script, this skill optimizes a knowledge base: it selects one high-value wiki gap, improves it with the narrowest relevant wiki workflow, evaluates whether the wiki became more useful, and keeps, discards, or quarantines the change.
 
+## Background References
+
+This project combines two related patterns:
+
+- [karpathy/autoresearch](https://github.com/karpathy/autoresearch) - Andrej Karpathy's original autonomous research loop for small, measurable LLM training experiments.
+- [karpathy/llm-wiki.md](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) - the original LLM Wiki idea file for LLM-maintained, compounding markdown knowledge bases.
+- [Ar9av/obsidian-wiki](https://github.com/Ar9av/obsidian-wiki) - an Obsidian-focused implementation of the Karpathy LLM Wiki pattern using agent-readable skill files.
+
 ## What It Does
 
 `wiki-autoresearch` helps an agent:
