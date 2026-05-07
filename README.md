@@ -131,10 +131,6 @@ The skill is intentionally conservative:
 
 This skill was extracted from a personal wiki setup, so some names are opinionated. See [docs/portability.md](docs/portability.md) for what other users may need to adapt.
 
-## Publishing
-
-See [docs/publish-from-vscode.md](docs/publish-from-vscode.md) for a step-by-step GitHub publishing flow from VS Code.
-
 ## License
 
 MIT. See [LICENSE](LICENSE).
