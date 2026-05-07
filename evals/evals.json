@@ -1,0 +1,75 @@
+{
+  "skill_name": "wiki-autoresearch",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "Run one autoresearch cycle on my Obsidian wiki and improve the highest-value gap you find.",
+      "expected_output": "Selects one wiki gap, chooses a bounded cycle type, records before/after health signals, applies or drafts changes safely, and reports a keep/discard decision.",
+      "files": [],
+      "expectations": [
+        "Initializes or reads _system/autoresearch cycle memory before selecting a gap.",
+        "Uses score_candidates.mjs or an equivalent explicit scoring pass before choosing the candidate.",
+        "Chooses one cycle type and one reviewable target rather than mixing multiple broad maintenance tasks.",
+        "Captures a before/after scorecard with benchmark questions when the cycle is research or synthesis.",
+        "Records the cycle decision and rationale in the autoresearch ledger.",
+        "Updates the agenda with useful next candidates or blocked lessons."
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "Use my raw clippings backlog to improve the wiki for a while, but keep it reviewable.",
+      "expected_output": "Treats this as a budgeted backlog distillation run, limits scope to a small related batch, preserves provenance, updates tracking files, and summarizes changes.",
+      "files": [],
+      "expectations": [
+        "Uses a finite budget appropriate to 'for a while' and does not promise indefinite operation.",
+        "Selects a small related raw-source batch instead of ingesting the whole backlog blindly.",
+        "Preserves source paths or URLs in page frontmatter or source summaries.",
+        "Adds or reuses benchmark questions for the distilled topic when the result should improve retrieval.",
+        "Records high-value source-backed claims in the source-claim map when claims are subtle, disputed, or likely to go stale.",
+        "Writes a ledger entry with pages changed, sources added, keep/discard decision, and lessons."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Can you run an overnight autoresearch loop on the wiki?",
+      "expected_output": "Sets a finite overnight budget, explains safety checkpoints, uses wiki skills in cycles, and stops with a reviewable report rather than promising infinite execution.",
+      "files": [],
+      "expectations": [
+        "Sets the default overnight budget to eight cycles unless the user specifies otherwise.",
+        "Performs or explains the git branch or backup safety checkpoint before vault edits.",
+        "Uses the candidate scorer and prior ledger entries to avoid repeating recently discarded candidates.",
+        "Records each cycle separately in the ledger rather than only producing a final prose summary.",
+        "Turns discarded or quarantined cycles into lessons, blocked items, or agenda entries.",
+        "Stops with a concise report covering kept changes, discarded changes, health delta, and autoresearch memory updates."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Run one autoresearch cycle, and prioritize pages that have open questions or conflicting statements.",
+      "expected_output": "Runs the bundled uncertainty scanner or an equivalent deterministic marker search, checks whether the answer already exists in the wiki or raw source collections, calls wiki-research when external evidence is needed, and updates the originating pages with a sourced resolution or a clear unresolved state.",
+      "files": [],
+      "expectations": [
+        "Runs find_uncertainty_markers.mjs or score_candidates.mjs and prioritizes concrete open questions or conflicts.",
+        "Checks existing wiki and raw-source collections before using external research.",
+        "Captures competing claims, scopes, dates, and provenance when handling a conflict.",
+        "Updates the originating page with either a sourced resolution or an explicit unresolved state.",
+        "Records conflict-related claims in source-claims.jsonl through the cycle record.",
+        "Adds or reuses benchmark questions that test whether the conflict or open question is now easier to answer."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Continue autoresearch from the last run and choose the next best cycle.",
+      "expected_output": "Uses prior cycle memory, agenda items, benchmark questions, source-claim map entries, and discarded-cycle lessons to choose the next bounded improvement.",
+      "files": [],
+      "expectations": [
+        "Reads recent cycles.jsonl entries before selecting the next candidate.",
+        "Uses agenda.md as a positive signal for promising next cycles.",
+        "Penalizes or reframes recently discarded or quarantined candidates instead of repeating them.",
+        "Reuses benchmark questions from benchmark-questions.json when they fit the selected topic.",
+        "Treats disputed, stale, or unverified source-claim map entries as high-value research leads.",
+        "Records the new cycle so the next continuation has fresh memory."
+      ]
+    }
+  ]
+}
